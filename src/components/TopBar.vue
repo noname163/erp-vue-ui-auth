@@ -5,7 +5,7 @@
       <h1 class="text-base font-semibold">{{ t('app.title') }}</h1>
     </div>
     <div class="flex items-center gap-2">
-      <input class="input w-64" placeholder="Search employees, schedules..." />
+      <input class="input w-64" :placeholder="t('app.searchPlaceholder')" />
       <button class="btn btn-secondary h-9 px-3" @click="$emit('toggleTheme')">
         <span class="i">🌓</span><span class="ml-2 hidden md:inline">Theme</span>
       </button>

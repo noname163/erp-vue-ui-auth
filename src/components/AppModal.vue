@@ -10,13 +10,15 @@
         <slot />
       </div>
       <footer class="mt-4 flex justify-end gap-2">
-        <button class="btn btn-secondary h-9 px-3" @click="emit('close')">Cancel</button>
+        <button class="btn btn-secondary h-9 px-3" @click="emit('close')">{{ t('controls.cancel') }}</button>
         <button class="btn btn-primary h-9 px-3" @click="emit('confirm')">{{ confirmText }}</button>
       </footer>
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 const props = withDefaults(
   defineProps<{ open: boolean; title?: string; confirmText?: string }>(),
   { confirmText: 'Save' }

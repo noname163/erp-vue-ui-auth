@@ -3,7 +3,8 @@
     "title": "ERP System",
     "language": "Language",
     "english": "English",
-    "vietnamese": "Vietnamese"
+    "vietnamese": "Vietnamese",
+    "searchPlaceholder": "Search employees, schedules..."
   },
   "auth": {
     "login": "Login",
@@ -17,7 +18,11 @@
     "dashboard": "Dashboard",
     "employees": "Employees",
     "schedules": "Schedules",
-    "settings": "Settings"
+    "settings": "Settings",
+    "pto": "PTO & Forms",
+    "salaryTax": "Salary & Tax",
+    "reports": "Reports",
+    "auditLog": "Audit Log"
   },
   "controls": {
     "startDate": "Start date",
@@ -27,12 +32,81 @@
     "clear": "Clear",
     "open": "Open",
     "close": "Close",
-    "remove": "Remove"
+    "remove": "Remove",
+    "cancel": "Cancel",
+    "create": "Create",
+    "upload": "Upload",
+    "noResults": "No results"
   },
   "validation": {
     "required": "This field is required",
     "endOnOrAfterStart": "End date must be on or after start date",
     "endOnOrBeforeStart": "End date must be on or before start date"
+  },
+  "employees": {
+    "title": "Employees",
+    "importCsv": "Import CSV",
+    "add": "Add Employee",
+    "createTitle": "Create Employee",
+    "searchPlaceholder": "Search employees...",
+    "fields": {
+      "fullName": "Full name",
+      "code": "Code",
+      "email": "Email",
+      "department": "Department",
+      "manager": "Manager",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive"
+    }
+  },
+  "audit": {
+    "title": "Audit Log",
+    "filterPlaceholder": "Filter logs..."
+  },
+  "workSchedules": {
+    "title": "Work Schedules",
+    "copyLastWeek": "Copy Last Week",
+    "newSchedule": "New Schedule",
+    "calendarWeek": "Calendar (Week)",
+    "shiftsTable": "Shifts Table"
+  },
+  "reportsPage": {
+    "title": "Reports",
+    "operationLog": "Operation Log",
+    "attendance": "Attendance",
+    "payroll": "Payroll"
+  },
+  "settingsPage": {
+    "title": "Settings",
+    "company": "Company",
+    "departments": "Departments",
+    "rolesPermissions": "Roles & Permissions",
+    "apiKeys": "API Keys"
+  },
+  "dashboard": {
+    "activeEmployees": "Active Employees",
+    "todaysShifts": "Today's Shifts",
+    "pendingPTO": "Pending PTO",
+    "payrollStatus": "Payroll Status",
+    "quickActions": "Quick Actions",
+    "recentActivity": "Recent Activity"
+  },
+  "salaryTax": {
+    "title": "Salary & Tax",
+    "stepperTitle": "Payroll Stepper",
+    "steps": {
+      "selectPeriod": "1. Select period",
+      "validateTime": "2. Validate time",
+      "adjustments": "3. Adjustments",
+      "taxCalc": "4. Tax calc",
+      "review": "5. Review",
+      "export": "6. Export"
+    }
+  },
+  "ptoPage": {
+    "title": "PTO & Forms",
+    "newRequest": "New Request",
+    "requests": "Requests"
   }
 }
-

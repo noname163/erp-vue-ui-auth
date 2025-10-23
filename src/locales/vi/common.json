@@ -3,7 +3,8 @@
     "title": "Hệ thống ERP",
     "language": "Ngôn ngữ",
     "english": "Tiếng Anh",
-    "vietnamese": "Tiếng Việt"
+    "vietnamese": "Tiếng Việt",
+    "searchPlaceholder": "Tìm nhân viên, lịch làm việc..."
   },
   "auth": {
     "login": "Đăng nhập",
@@ -17,7 +18,11 @@
     "dashboard": "Bảng điều khiển",
     "employees": "Nhân viên",
     "schedules": "Lịch làm việc",
-    "settings": "Cài đặt"
+    "settings": "Cài đặt",
+    "pto": "Nghỉ phép & Biểu mẫu",
+    "salaryTax": "Lương & Thuế",
+    "reports": "Báo cáo",
+    "auditLog": "Nhật ký kiểm tra"
   },
   "controls": {
     "startDate": "Ngày bắt đầu",
@@ -27,12 +32,81 @@
     "clear": "Xóa",
     "open": "Mở",
     "close": "Đóng",
-    "remove": "Gỡ"
+    "remove": "Gỡ",
+    "cancel": "Hủy",
+    "create": "Tạo",
+    "upload": "Tải lên",
+    "noResults": "Không có kết quả"
   },
   "validation": {
     "required": "Trường này là bắt buộc",
     "endOnOrAfterStart": "Ngày kết thúc phải sau hoặc bằng ngày bắt đầu",
     "endOnOrBeforeStart": "Ngày kết thúc phải trước hoặc bằng ngày bắt đầu"
+  },
+  "employees": {
+    "title": "Nhân viên",
+    "importCsv": "Nhập CSV",
+    "add": "Thêm nhân viên",
+    "createTitle": "Tạo nhân viên",
+    "searchPlaceholder": "Tìm nhân viên...",
+    "fields": {
+      "fullName": "Họ và tên",
+      "code": "Mã",
+      "email": "Email",
+      "department": "Phòng ban",
+      "manager": "Quản lý",
+      "status": "Trạng thái",
+      "active": "Đang làm",
+      "inactive": "Ngừng làm"
+    }
+  },
+  "audit": {
+    "title": "Nhật ký kiểm tra",
+    "filterPlaceholder": "Lọc nhật ký..."
+  },
+  "workSchedules": {
+    "title": "Lịch làm việc",
+    "copyLastWeek": "Sao chép tuần trước",
+    "newSchedule": "Lịch mới",
+    "calendarWeek": "Lịch (Tuần)",
+    "shiftsTable": "Bảng ca làm"
+  },
+  "reportsPage": {
+    "title": "Báo cáo",
+    "operationLog": "Nhật ký vận hành",
+    "attendance": "Chấm công",
+    "payroll": "Bảng lương"
+  },
+  "settingsPage": {
+    "title": "Cài đặt",
+    "company": "Công ty",
+    "departments": "Phòng ban",
+    "rolesPermissions": "Vai trò & Phân quyền",
+    "apiKeys": "API Keys"
+  },
+  "dashboard": {
+    "activeEmployees": "Nhân viên đang làm",
+    "todaysShifts": "Ca hôm nay",
+    "pendingPTO": "Đơn nghỉ cần duyệt",
+    "payrollStatus": "Trạng thái lương",
+    "quickActions": "Thao tác nhanh",
+    "recentActivity": "Hoạt động gần đây"
+  },
+  "salaryTax": {
+    "title": "Lương & Thuế",
+    "stepperTitle": "Quy trình trả lương",
+    "steps": {
+      "selectPeriod": "1. Chọn kỳ",
+      "validateTime": "2. Xác thực công",
+      "adjustments": "3. Điều chỉnh",
+      "taxCalc": "4. Tính thuế",
+      "review": "5. Rà soát",
+      "export": "6. Xuất"
+    }
+  },
+  "ptoPage": {
+    "title": "Nghỉ phép & Biểu mẫu",
+    "newRequest": "Yêu cầu mới",
+    "requests": "Danh sách"
   }
 }
-

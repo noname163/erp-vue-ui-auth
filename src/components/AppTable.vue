@@ -24,7 +24,7 @@
             </td>
           </tr>
           <tr v-if="filtered.length === 0">
-            <td :colspan="columns.length" class="px-3 py-8 text-center text-[var(--text-muted)]">No results</td>
+            <td :colspan="columns.length" class="px-3 py-8 text-center text-[var(--text-muted)]">{{ t('controls.noResults') }}</td>
           </tr>
         </tbody>
       </table>
@@ -33,6 +33,8 @@
 </template>
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 type Column = { key: string; label: string }
 type Row = Record<string, any>
 const props = withDefaults(defineProps<{ columns?: Column[]; rows?: Row[]; placeholder?: string }>(), {
