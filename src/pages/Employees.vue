@@ -28,27 +28,22 @@
         <AppModal :open="openCreate" title="Create Employee" confirmText="Create" @close="openCreate = false"
             @confirm="createEmployee">
             <div>
-                <label class="label">Full name</label>
-                <input v-model="form.name" class="input" placeholder="Nguyen Van A" />
+                <FormInput v-model="form.name" label="Full name" placeholder="Nguyen Van A" />
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                    <label class="label">Code</label>
-                    <input v-model="form.code" class="input" placeholder="E-10001" />
+                    <FormInput v-model="form.code" label="Code" placeholder="E-10001" />
                 </div>
                 <div>
-                    <label class="label">Email</label>
-                    <input v-model="form.email" class="input" placeholder="a@example.com" />
+                    <FormInput v-model="form.email" label="Email" placeholder="a@example.com" />
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                    <label class="label">Department</label>
-                    <input v-model="form.dept" class="input" placeholder="Engineering" />
+                    <FormInput v-model="form.dept" label="Department" placeholder="Engineering" />
                 </div>
                 <div>
-                    <label class="label">Manager</label>
-                    <input v-model="form.manager" class="input" placeholder="Anh Tran" />
+                    <FormInput v-model="form.manager" label="Manager" placeholder="Anh Tran" />
                 </div>
             </div>
         </AppModal>
@@ -64,6 +59,7 @@ import { reactive, ref } from 'vue'
 import AppTable from '../components/AppTable.vue'
 import AppModal from '../components/AppModal.vue'
 import RequireRole from '../components/RequireRole.vue'
+import FormInput from '../components/FormInput.vue'
 
 const cols = [
     { key: 'name', label: 'Employee' },

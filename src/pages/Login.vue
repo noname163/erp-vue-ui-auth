@@ -16,11 +16,9 @@
             </div>
             <p class="text-sm text-[var(--text-muted)] mb-4">Sign in to continue to ERP.</p>
 
-            <label class="label">Email</label>
-            <input v-model="email" class="input mb-3" placeholder="admin@company.com" />
+      <FormInput v-model="email" label="Email" placeholder="admin@company.com" class="mb-3" />
 
-            <label class="label">Password</label>
-            <input v-model="password" class="input mb-4" type="password" placeholder="********" />
+      <FormInput v-model="password" label="Password" type="password" placeholder="********" class="mb-4" autocomplete="current-password" />
 
             <p v-if="error" class="text-sm text-red-600 mb-3">{{ error }}</p>
             <button class="btn btn-primary w-full h-10">Login</button>
@@ -34,6 +32,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useAuth } from '../stores/auth'
+import FormInput from '../components/FormInput.vue'
 const auth = useAuth()
 const email = ref('admin@company.com')
 const password = ref('password')
