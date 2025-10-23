@@ -14,10 +14,10 @@
     </nav>
   </aside>
 </template>
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 import { useAuth } from '../stores/auth'
-defineProps({ collapsed: { type: Boolean, default: false } })
+withDefaults(defineProps<{ collapsed?: boolean }>(), { collapsed: false })
 const auth = useAuth()
 const items = [
   { to: '/dashboard', label: 'Dashboard', icon: '🏠' },

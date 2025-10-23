@@ -35,7 +35,7 @@
     </AppCard>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import AppCard from '../components/AppCard.vue'
 import RequireRole from '../components/RequireRole.vue'
 </script>

@@ -16,7 +16,13 @@
     </div>
   </div>
 </template>
-<script setup>
-const props = defineProps({ open: Boolean, title: String, confirmText: { type: String, default: 'Save' } })
-const emit = defineEmits(['close','confirm'])
+<script setup lang="ts">
+const props = withDefaults(
+  defineProps<{ open: boolean; title?: string; confirmText?: string }>(),
+  { confirmText: 'Save' }
+)
+const emit = defineEmits<{
+  (e: 'close'): void
+  (e: 'confirm'): void
+}>()
 </script>

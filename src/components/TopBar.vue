@@ -16,7 +16,7 @@
     </div>
   </header>
 </template>
-<script setup>
+<script setup lang="ts">
 import { useAuth } from '../stores/auth'
 const auth = useAuth()
 </script>

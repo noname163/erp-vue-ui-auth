@@ -31,18 +31,19 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue'
-const props = defineProps({
-  columns: { type: Array, default: () => [] },
-  rows: { type: Array, default: () => [] },
-  placeholder: { type: String, default: 'Search...' }
+type Column = { key: string; label: string }
+type Row = Record<string, any>
+const props = withDefaults(defineProps<{ columns?: Column[]; rows?: Row[]; placeholder?: string }>(), {
+  columns: () => [],
+  rows: () => [],
+  placeholder: 'Search...'
 })
 const q = ref('')
-const filtered = computed(() => {
+const filtered = computed<Row[]>(() => {
   if (!q.value) return props.rows
   const needle = q.value.toLowerCase()
   return props.rows.filter(r => Object.values(r).some(v => String(v).toLowerCase().includes(needle)))
 })
 </script>
-

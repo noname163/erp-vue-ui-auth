@@ -4,7 +4,7 @@
     <AppTable :columns='cols' :rows='rows' placeholder='Filter logs...'/>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import AppTable from '../components/AppTable.vue'
 const cols=[
   {key:'date',label:'Date'},

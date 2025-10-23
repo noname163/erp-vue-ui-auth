@@ -23,7 +23,7 @@
     </form>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { useAuth } from '../stores/auth'
 import FormInput from '../components/FormInput.vue'
@@ -35,9 +35,8 @@ async function onSubmit() {
   try {
     error.value = ''
     await auth.login({ email: email.value, password: password.value })
-  } catch (e) {
-    error.value = e.message || 'Login failed'
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Login failed'
   }
 }
 </script>
-

@@ -35,7 +35,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !auth.isAuthenticated) {
     return next({ path: '/login', query: { redirect: to.fullPath } })
   }
-  if (to.meta.roles && !auth.hasRole(to.meta.roles)) {
+  if (to.meta.roles && !auth.hasRole(to.meta.roles as string[])) {
     return next({ path: '/dashboard' })
   }
   next()
