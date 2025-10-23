@@ -40,6 +40,9 @@ const props = withDefaults(defineProps<{ columns?: Column[]; rows?: Row[]; place
   rows: () => [],
   placeholder: 'Search...'
 })
+// Declare slots so Volar knows about dynamic cell:xxx slots used by parents
+type DynamicCellSlots = Partial<Record<`cell:${string}`, (props: { row: Row }) => any>>
+defineSlots<{ actions?: () => any } & DynamicCellSlots>()
 const q = ref('')
 const filtered = computed<Row[]>(() => {
   if (!q.value) return props.rows
