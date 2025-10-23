@@ -13,6 +13,8 @@
   --border-subtle:#2B2F39; --border-strong:#3A3F4B; --focus-ring:#60A5FA;
 }
 
+.login-bg { background-image: url('/login-bg.jpg'); }
+
 .card { @apply bg-surface shadow-elev1 rounded-lg p-4; }
 .btn { @apply inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2; }
 .btn-primary { @apply bg-brand text-white hover:bg-brand-600; }
