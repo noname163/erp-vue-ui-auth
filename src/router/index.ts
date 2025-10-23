@@ -11,6 +11,7 @@ import SalaryTax from '../pages/SalaryTax.vue'
 import Reports from '../pages/Reports.vue'
 import AuditLog from '../pages/AuditLog.vue'
 import Settings from '../pages/Settings.vue'
+import ComponentsDemo from '../pages/components-demo.vue'
 
 const routes = [
   { path: '/login', component: Login, meta: { public: true } },
@@ -24,6 +25,7 @@ const routes = [
   { path: '/reports', component: Reports, meta: { requiresAuth: true, roles: ['admin','manager'] } },
   { path: '/audit', component: AuditLog, meta: { requiresAuth: true, roles: ['admin'] } },
   { path: '/settings', component: Settings, meta: { requiresAuth: true, roles: ['admin'] } },
+  { path: '/components-demo', component: ComponentsDemo, meta: { public: true } },
 ]
 
 const router = createRouter({ history: createWebHistory(), routes })
