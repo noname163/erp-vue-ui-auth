@@ -4,7 +4,8 @@
     "language": "Ngôn ngữ",
     "english": "Tiếng Anh",
     "vietnamese": "Tiếng Việt",
-    "searchPlaceholder": "Tìm nhân viên, lịch làm việc..."
+    "searchPlaceholder": "Tìm nhân viên, lịch làm việc...",
+    "theme": "Giao diện"
   },
   "auth": {
     "login": "Đăng nhập",
