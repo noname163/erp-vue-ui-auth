@@ -1,0 +1,38 @@
+{
+  "app": {
+    "title": "Hệ thống ERP",
+    "language": "Ngôn ngữ",
+    "english": "Tiếng Anh",
+    "vietnamese": "Tiếng Việt"
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "rememberMe": "Ghi nhớ đăng nhập",
+    "signInToAccount": "Đăng nhập vào tài khoản của bạn"
+  },
+  "nav": {
+    "dashboard": "Bảng điều khiển",
+    "employees": "Nhân viên",
+    "schedules": "Lịch làm việc",
+    "settings": "Cài đặt"
+  },
+  "controls": {
+    "startDate": "Ngày bắt đầu",
+    "endDate": "Ngày kết thúc",
+    "datePlaceholder": "YYYY-MM-DD",
+    "select": "Chọn",
+    "clear": "Xóa",
+    "open": "Mở",
+    "close": "Đóng",
+    "remove": "Gỡ"
+  },
+  "validation": {
+    "required": "Trường này là bắt buộc",
+    "endOnOrAfterStart": "Ngày kết thúc phải sau hoặc bằng ngày bắt đầu",
+    "endOnOrBeforeStart": "Ngày kết thúc phải trước hoặc bằng ngày bắt đầu"
+  }
+}
+

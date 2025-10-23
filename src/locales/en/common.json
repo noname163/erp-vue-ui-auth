@@ -1,0 +1,38 @@
+{
+  "app": {
+    "title": "ERP System",
+    "language": "Language",
+    "english": "English",
+    "vietnamese": "Vietnamese"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "rememberMe": "Remember me",
+    "signInToAccount": "Sign in to your account"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "employees": "Employees",
+    "schedules": "Schedules",
+    "settings": "Settings"
+  },
+  "controls": {
+    "startDate": "Start date",
+    "endDate": "End date",
+    "datePlaceholder": "YYYY-MM-DD",
+    "select": "Select",
+    "clear": "Clear",
+    "open": "Open",
+    "close": "Close",
+    "remove": "Remove"
+  },
+  "validation": {
+    "required": "This field is required",
+    "endOnOrAfterStart": "End date must be on or after start date",
+    "endOnOrBeforeStart": "End date must be on or before start date"
+  }
+}
+
