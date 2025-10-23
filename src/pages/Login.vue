@@ -1,0 +1,32 @@
+<template>
+  <div class="min-h-[calc(100vh-56px)] grid place-items-center">
+    <form class="card w-full max-w-md" @submit.prevent="onSubmit">
+      <h2 class="text-xl font-semibold mb-4">Sign in</h2>
+      <label class="label">Email</label>
+      <input v-model="email" class="input mb-3" placeholder="admin@company.com" />
+      <label class="label">Password</label>
+      <input v-model="password" class="input mb-4" type="password" placeholder="••••••••" />
+      <p v-if="error" class="text-sm text-red-600 mb-3">{{ error }}</p>
+      <button class="btn btn-primary w-full h-10">Login</button>
+      <p class="text-xs text-[var(--text-muted)] mt-3">
+        Demo roles by email: <code>admin@</code> → admin, <code>manager@</code> → manager, others → viewer
+      </p>
+    </form>
+  </div>
+</template>
+<script setup>
+import { ref } from 'vue'
+import { useAuth } from '../stores/auth'
+const auth = useAuth()
+const email = ref('admin@company.com')
+const password = ref('password')
+const error = ref('')
+async function onSubmit() {
+  try {
+    error.value = ''
+    await auth.login({ email: email.value, password: password.value })
+  } catch (e) {
+    error.value = e.message || 'Login failed'
+  }
+}
+</script>
