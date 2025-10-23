@@ -36,7 +36,7 @@ import { computed, ref } from 'vue'
 const props = defineProps({
   columns: { type: Array, default: () => [] },
   rows: { type: Array, default: () => [] },
-  placeholder: { type: String, default: 'Search…' }
+  placeholder: { type: String, default: 'Search...' }
 })
 const q = ref('')
 const filtered = computed(() => {
@@ -45,3 +45,4 @@ const filtered = computed(() => {
   return props.rows.filter(r => Object.values(r).some(v => String(v).toLowerCase().includes(needle)))
 })
 </script>
+

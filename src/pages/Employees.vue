@@ -88,6 +88,6 @@ function createEmployee() {
     if (!form.name || !form.code) return
     rows.value.unshift({ id: Date.now(), ...form })
     openCreate.value = false
-    form.name = ''; form.code = ''; form.email = ''; form.dept = ''; form.manager = ''; form.status = 'Active'
+    console.log('Created employee:', { ...form })
 }
 </script>
