@@ -5,13 +5,20 @@
 </template>
 <script setup lang="ts">
 import { h } from 'vue'
-const props = withDefaults(defineProps<{ name: 'dashboard'|'users'|'calendar'|'form'|'payroll'|'reports'|'shield'|'settings'|string; cls?: string }>(), { cls: '' })
+const props = withDefaults(defineProps<{ name: 'dashboard'|'users'|'calendar'|'form'|'payroll'|'reports'|'shield'|'settings'|'building'|string; cls?: string }>(), { cls: '' })
 const paths: Record<string, any> = {
   dashboard: { render() { return [
     h('path', { d: 'M3 3h8v8H3z' }),
     h('path', { d: 'M13 3h8v5h-8z' }),
     h('path', { d: 'M13 10h8v11h-8z' }),
     h('path', { d: 'M3 13h8v8H3z' })] } },
+  building: { render() { return [
+    h('path', { d: 'M3 21h18' }),
+    h('path', { d: 'M6 21V7' }),
+    h('path', { d: 'M10 21V3' }),
+    h('path', { d: 'M14 21V7' }),
+    h('path', { d: 'M18 21V3' }),
+    h('rect', { x: '2', y: '3', width: '20', height: '4' })] } },
   users: { render() { return [
     h('path', { d: 'M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2' }),
     h('circle', { cx: '9', cy: '7', r: '4' }),

@@ -24,6 +24,7 @@ const { t } = useI18n()
 const auth = useAuth()
 const items = [
   { to: '/dashboard', icon: 'dashboard', label: () => t('nav.dashboard') },
+  { to: '/companies', icon: 'building', label: () => t('nav.companies'), roles: ['admin'] },
   { to: '/employees', icon: 'users', label: () => t('nav.employees'), roles: ['admin','manager'] },
   { to: '/schedules', icon: 'calendar', label: () => t('workSchedules.title'), roles: ['admin','manager'] },
   { to: '/pto', icon: 'form', label: () => t('nav.pto'), roles: ['admin','manager','viewer'] },

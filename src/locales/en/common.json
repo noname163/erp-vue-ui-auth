@@ -17,6 +17,7 @@
   },
   "nav": {
     "dashboard": "Dashboard",
+    "companies": "Companies",
     "employees": "Employees",
     "schedules": "Schedules",
     "settings": "Settings",
@@ -36,6 +37,8 @@
     "remove": "Remove",
     "cancel": "Cancel",
     "create": "Create",
+    "edit": "Edit",
+    "save": "Save",
     "upload": "Upload",
     "noResults": "No results"
   },
@@ -109,5 +112,55 @@
     "title": "PTO & Forms",
     "newRequest": "New Request",
     "requests": "Requests"
+  },
+  "companies": {
+    "title": "Companies",
+    "add": "Add Company",
+    "createTitle": "Create Company",
+    "editTitle": "Edit Company",
+    "searchPlaceholder": "Search companies...",
+    "fields": {
+      "name": "Company name",
+      "code": "Code",
+      "industry": "Industry",
+      "phone": "Phone",
+      "email": "Email",
+      "status": "Status"
+    },
+    "columns": {
+      "company": "Company",
+      "industry": "Industry",
+      "contact": "Contact",
+      "status": "Status",
+      "accounts": "Accounts"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "deleteTitle": "Delete Company",
+    "deleteMessage": "Are you sure you want to delete {name}? This will remove all associated accounts.",
+    "manageAccounts": "Manage Accounts",
+    "accounts": {
+      "title": "Company Accounts",
+      "manageTitle": "Manage accounts for {name}",
+      "addAccountTitle": "Add account",
+      "editAccountTitle": "Edit account",
+      "addAccount": "Add account",
+      "updateAccount": "Update account",
+      "resetForm": "Reset form",
+      "noAccounts": "No accounts yet.",
+      "fields": {
+        "name": "Full name",
+        "email": "Email",
+        "role": "Role",
+        "status": "Status"
+      },
+      "roles": {
+        "owner": "Owner",
+        "admin": "Admin",
+        "member": "Member"
+      }
+    }
   }
 }
