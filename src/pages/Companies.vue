@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between">
       <h2 class="text-lg font-semibold">{{ t('companies.title') }}</h2>
       <RequireRole :roles="['admin']">
-        <button class="btn btn-primary h-9 px-3" @click="openCreateCompany">{{ t('companies.add') }}</button>
+        <AppButton variant="primary" size="md" @click="openCreateCompany">{{ t('companies.add') }}</AppButton>
       </RequireRole>
     </div>
 
@@ -30,9 +30,9 @@
       </template>
       <template #cell:actions="{ row }">
         <div class="flex gap-2">
-          <button class="btn btn-ghost h-8 px-2" @click="openAccounts(row as Company)">{{ t('companies.manageAccounts') }}</button>
-          <button class="btn btn-ghost h-8 px-2" @click="startEditCompany(row as Company)">{{ t('controls.edit') }}</button>
-          <button class="btn btn-ghost h-8 px-2 text-red-500" @click="askDeleteCompany(row as Company)">{{ t('controls.remove') }}</button>
+          <AppButton variant="ghost" size="sm" @click="openAccounts(row as Company)">{{ t('companies.manageAccounts') }}</AppButton>
+          <AppButton variant="ghost" size="sm" @click="startEditCompany(row as Company)">{{ t('controls.edit') }}</AppButton>
+          <AppButton variant="ghost" size="sm" class="text-red-500" @click="askDeleteCompany(row as Company)">{{ t('controls.remove') }}</AppButton>
         </div>
       </template>
     </AppTable>
@@ -44,19 +44,7 @@
       @close="closeCompanyModal"
       @confirm="saveCompany"
     >
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <FormInput v-model="companyForm.name" :label="t('companies.fields.name')" placeholder="Acme Corp" />
-        <FormInput v-model="companyForm.code" :label="t('companies.fields.code')" placeholder="C-10001" />
-        <FormInput v-model="companyForm.industry" :label="t('companies.fields.industry')" placeholder="Manufacturing" />
-        <FormInput v-model="companyForm.phone" :label="t('companies.fields.phone')" placeholder="(+84) 901234567" />
-        <FormInput v-model="companyForm.contactEmail" type="email" :label="t('companies.fields.email')" placeholder="contact@acme.com" class="md:col-span-2" />
-        <div>
-          <label class="label" for="company-status">{{ t('companies.fields.status') }}</label>
-          <select id="company-status" v-model="companyForm.status" class="input">
-            <option v-for="option in statusOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
-          </select>
-        </div>
-      </div>
+      <CompanyForm v-model="companyForm" :status-options="statusOptions" />
     </AppModal>
 
     <AppModal
@@ -92,8 +80,8 @@
                 <div class="text-xs text-[var(--text-muted)]">{{ roleLabel(account.role) }} · {{ statusLabel(account.status) }}</div>
               </div>
               <div class="flex gap-2">
-                <button class="btn btn-ghost h-8 px-2" @click="startEditAccount(account)">{{ t('controls.edit') }}</button>
-                <button class="btn btn-ghost h-8 px-2 text-red-500" @click="removeAccount(account.id)">{{ t('controls.remove') }}</button>
+            <AppButton variant="ghost" size="sm" @click="startEditAccount(account)">{{ t('controls.edit') }}</AppButton>
+            <AppButton variant="ghost" size="sm" class="text-red-500" @click="removeAccount(account.id)">{{ t('controls.remove') }}</AppButton>
               </div>
             </div>
           </div>
@@ -104,27 +92,16 @@
           <h3 class="text-sm font-semibold mb-3">
             {{ editingAccountId ? t('companies.accounts.editAccountTitle') : t('companies.accounts.addAccountTitle') }}
           </h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <FormInput v-model="accountForm.name" :label="t('companies.accounts.fields.name')" placeholder="Nguyen Van A" />
-            <FormInput v-model="accountForm.email" type="email" :label="t('companies.accounts.fields.email')" placeholder="user@company.com" />
-            <div>
-              <label class="label" for="account-role">{{ t('companies.accounts.fields.role') }}</label>
-              <select id="account-role" v-model="accountForm.role" class="input">
-                <option v-for="option in accountRoleOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
-              </select>
-            </div>
-            <div>
-              <label class="label" for="account-status">{{ t('companies.accounts.fields.status') }}</label>
-              <select id="account-status" v-model="accountForm.status" class="input">
-                <option v-for="option in statusOptions" :key="option.value" :value="option.value">{{ option.label }}</option>
-              </select>
-            </div>
-          </div>
+          <CompanyAccountForm
+            v-model="accountForm"
+            :role-options="accountRoleOptions"
+            :status-options="statusOptions"
+          />
           <div class="mt-3 flex justify-end gap-2">
-            <button class="btn btn-secondary h-9 px-3" @click="resetAccountForm()">{{ t('companies.accounts.resetForm') }}</button>
-            <button class="btn btn-primary h-9 px-3" @click="saveAccount">
+            <AppButton variant="secondary" size="md" @click="resetAccountForm()">{{ t('companies.accounts.resetForm') }}</AppButton>
+            <AppButton variant="primary" size="md" @click="saveAccount">
               {{ editingAccountId ? t('companies.accounts.updateAccount') : t('companies.accounts.addAccount') }}
-            </button>
+            </AppButton>
           </div>
         </div>
       </div>
@@ -139,6 +116,9 @@ import AppTable from '../components/AppTable.vue'
 import AppModal from '../components/AppModal.vue'
 import FormInput from '../components/FormInput.vue'
 import RequireRole from '../components/RequireRole.vue'
+import AppButton from '../components/AppButton.vue'
+import CompanyForm from '../components/CompanyForm.vue'
+import CompanyAccountForm from '../components/CompanyAccountForm.vue'
 
 type CompanyStatus = 'Active' | 'Inactive'
 type AccountStatus = CompanyStatus

@@ -15,20 +15,24 @@
                 <div @click.stop
                     class="absolute right-0 top-full mt-2 z-50 w-64 rounded-lg border border-[var(--border-subtle)] bg-surface shadow-elev3 p-3"
                     :class="[menuOpen ? 'block' : 'hidden', 'group-hover:block']" role="menu">
-                    <div class="absolute -top-2 right-5 h-3 w-3 bg-surface border border-[var(--border-subtle)] rotate-45"></div>
+                    <div
+                        class="absolute -top-2 right-5 h-3 w-3 bg-surface border border-[var(--border-subtle)] rotate-45">
+                    </div>
                     <div class="flex items-center gap-2 mb-3">
-                        <div class="h-8 w-8 rounded-full bg-[var(--bg-canvas)] grid place-items-center">{{ avatarInitial }}</div>
+                        <div class="h-8 w-8 rounded-full bg-[var(--bg-canvas)] grid place-items-center">{{ avatarInitial
+                            }}</div>
                         <div class="min-w-0">
                             <div class="text-sm font-medium truncate">{{ auth.user?.name || auth.user?.email }}</div>
                             <div class="text-xs text-[var(--text-secondary)] truncate">{{ auth.user?.email }}</div>
                         </div>
                     </div>
-                    <div class="mb-2 text-xs font-semibold text-[var(--text-secondary)] tracking-wide">{{ t('app.language') }}</div>
                     <LanguageSwitcherInline />
                     <div class="h-px my-3 bg-[var(--border-subtle)]"></div>
-                    <button class="btn btn-secondary h-9 px-3 w-full justify-start" @click="$emit('toggleTheme')">{{ t('app.theme') }}</button>
+                    <button class="btn btn-secondary h-9 px-3 w-full justify-start" @click="$emit('toggleTheme')">{{
+                        t('app.theme') }}</button>
                     <div class="h-px my-3 bg-[var(--border-subtle)]"></div>
-                    <button class="btn btn-ghost h-9 px-3 w-full justify-start" @click="auth.logout()">{{ t('auth.logout') }}</button>
+                    <button class="btn btn-ghost h-9 px-3 w-full justify-start" @click="auth.logout()">{{
+                        t('auth.logout') }}</button>
                 </div>
             </div>
         </div>
