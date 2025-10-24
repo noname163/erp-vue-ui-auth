@@ -17,6 +17,7 @@
   },
   "nav": {
     "dashboard": "Bảng điều khiển",
+    "companies": "Doanh nghiệp",
     "employees": "Nhân viên",
     "schedules": "Lịch làm việc",
     "settings": "Cài đặt",
@@ -36,6 +37,8 @@
     "remove": "Gỡ",
     "cancel": "Hủy",
     "create": "Tạo",
+    "edit": "Chỉnh sửa",
+    "save": "Lưu",
     "upload": "Tải lên",
     "noResults": "Không có kết quả"
   },
@@ -109,5 +112,55 @@
     "title": "Nghỉ phép & Biểu mẫu",
     "newRequest": "Yêu cầu mới",
     "requests": "Danh sách"
+  },
+  "companies": {
+    "title": "Doanh nghiệp",
+    "add": "Thêm doanh nghiệp",
+    "createTitle": "Tạo doanh nghiệp",
+    "editTitle": "Chỉnh sửa doanh nghiệp",
+    "searchPlaceholder": "Tìm doanh nghiệp...",
+    "fields": {
+      "name": "Tên doanh nghiệp",
+      "code": "Mã",
+      "industry": "Ngành",
+      "phone": "Điện thoại",
+      "email": "Email",
+      "status": "Trạng thái"
+    },
+    "columns": {
+      "company": "Doanh nghiệp",
+      "industry": "Ngành",
+      "contact": "Liên hệ",
+      "status": "Trạng thái",
+      "accounts": "Tài khoản"
+    },
+    "status": {
+      "active": "Đang hoạt động",
+      "inactive": "Ngừng hoạt động"
+    },
+    "deleteTitle": "Xóa doanh nghiệp",
+    "deleteMessage": "Bạn có chắc muốn xóa {name}? Thao tác này sẽ xóa tất cả tài khoản liên quan.",
+    "manageAccounts": "Quản lý tài khoản",
+    "accounts": {
+      "title": "Tài khoản doanh nghiệp",
+      "manageTitle": "Quản lý tài khoản cho {name}",
+      "addAccountTitle": "Thêm tài khoản",
+      "editAccountTitle": "Chỉnh sửa tài khoản",
+      "addAccount": "Thêm tài khoản",
+      "updateAccount": "Cập nhật tài khoản",
+      "resetForm": "Đặt lại",
+      "noAccounts": "Chưa có tài khoản nào.",
+      "fields": {
+        "name": "Họ và tên",
+        "email": "Email",
+        "role": "Vai trò",
+        "status": "Trạng thái"
+      },
+      "roles": {
+        "owner": "Chủ sở hữu",
+        "admin": "Quản trị",
+        "member": "Thành viên"
+      }
+    }
   }
 }

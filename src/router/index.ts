@@ -4,6 +4,7 @@ import { useAuth } from '../stores/auth'
 import Login from '../pages/Login.vue'
 import Dashboard from '../pages/Dashboard.vue'
 import Employees from '../pages/Employees.vue'
+import Companies from '../pages/Companies.vue'
 import EmployeeDetail from '../pages/EmployeeDetail.vue'
 import WorkSchedules from '../pages/WorkSchedules.vue'
 import PTOForms from '../pages/PTOForms.vue'
@@ -17,6 +18,7 @@ const routes = [
   { path: '/login', component: Login, meta: { public: true } },
   { path: '/', redirect: '/dashboard' },
   { path: '/dashboard', component: Dashboard, meta: { requiresAuth: true } },
+  { path: '/companies', component: Companies, meta: { requiresAuth: true, roles: ['admin'] } },
   { path: '/employees', component: Employees, meta: { requiresAuth: true, roles: ['admin','manager'] } },
   { path: '/employees/:code', name: 'employee-detail', component: EmployeeDetail, props: true, meta: { requiresAuth: true, roles: ['admin','manager','viewer'] } },
   { path: '/schedules', component: WorkSchedules, meta: { requiresAuth: true, roles: ['admin','manager'] } },
