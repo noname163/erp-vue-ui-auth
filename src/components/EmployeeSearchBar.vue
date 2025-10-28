@@ -1,8 +1,8 @@
 <template>
-    <div class="flex items-center gap-2">
-        <BaseInput :model-value="modelValue" :placeholder="placeholder || 'Search employee by name/code...'"
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full">
+        <BaseInput class="w-full" :model-value="modelValue" :placeholder="placeholder || t('app.searchPlaceholder')"
             aria-label="Employee search" @update:modelValue="handleInput" />
-        <AppButton variant="secondary" @click="$emit('search', modelValue.trim())">
+        <AppButton class="w-full sm:w-auto" variant="secondary" @click="$emit('search', modelValue.trim())">
             {{ t('controls.search') }}
         </AppButton>
     </div>

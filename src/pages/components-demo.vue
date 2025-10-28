@@ -35,7 +35,7 @@ import Dropdown from '../components/inputs/Dropdown.vue'
 import MultiSelect from '../components/inputs/MultiSelect.vue'
 
 const d1 = ref<string | null>(null)
-const range = ref<{ start: string | null; end: string | null }>({ start: null, end: null })
+const range = ref<{ start: string; end: string }>({ start: '', end: '' })
 const opts = [
   { label: 'Admin', value: 'admin' },
   { label: 'Manager', value: 'manager' },
@@ -44,4 +44,3 @@ const opts = [
 const opt = ref<string | null>(null)
 const many = ref<string[]>([])
 </script>
-

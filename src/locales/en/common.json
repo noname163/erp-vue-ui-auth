@@ -72,7 +72,8 @@
     "endTime": "End time",
     "applySelectedEmployees": "Apply to selected employees",
     "byHours": "Input working hours",
-    "byTime": "Start/End time"
+    "byTime": "Start/End time",
+    "date": "Date"
   },
   "validation": {
     "required": "This field is required",

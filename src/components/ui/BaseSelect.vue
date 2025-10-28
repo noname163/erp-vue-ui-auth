@@ -13,7 +13,7 @@
             </svg>
         </button>
 
-        <div v-if="open" class="absolute z-10 mt-1 w-full rounded-md border bg-white shadow">
+        <div v-if="open" class="absolute z-10 mt-1 w-full rounded-md border bg-white shadow max-h-[50vh] overflow-auto">
             <div class="p-2 border-b">
                 <input v-model="query" type="text" class="w-full rounded-md border px-2 py-1 text-sm"
                     :placeholder="t('controls.searchPlaceholder') || 'Search...'" @keydown.stop />

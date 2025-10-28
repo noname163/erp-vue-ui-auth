@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-4">
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
       <h2 class="text-lg font-semibold">{{ t('companies.title') }}</h2>
       <RequireRole :roles="['admin']">
         <AppButton variant="primary" size="md" @click="openCreateCompany">{{ t('companies.add') }}</AppButton>

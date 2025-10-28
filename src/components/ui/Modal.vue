@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 defineProps<{ open: boolean; title?: string; widthClass?: string }>();
 const emit = defineEmits(['close']);
 function onBackdrop(e: MouseEvent) {
@@ -10,7 +10,7 @@ function onBackdrop(e: MouseEvent) {
 <template>
     <div v-if="open" id="modal-backdrop" class="fixed inset-0 z-50 grid place-items-center bg-black/40"
         @click="onBackdrop">
-        <div :class="['bg-white rounded-xl shadow-xl w-full max-w-2xl', widthClass]">
+        <div :class="['bg-white rounded-md sm:rounded-xl shadow-xl w-full sm:max-w-2xl max-h-[90vh] overflow-auto mx-2 sm:mx-0', widthClass]">
             <div class="flex items-center justify-between p-4 border-b">
                 <h3 class="text-lg font-semibold">{{ title }}</h3>
                 <button class="text-sm px-2 py-1 rounded hover:bg-gray-100" @click="$emit('close')">✕</button>
@@ -21,3 +21,7 @@ function onBackdrop(e: MouseEvent) {
         </div>
     </div>
 </template>
+
+
+
+

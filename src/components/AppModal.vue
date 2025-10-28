@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div
     v-if="open"
     class="fixed inset-0 z-50 flex items-center justify-center"
@@ -7,10 +7,10 @@
     :aria-labelledby="titleId"
   >
     <div class="absolute inset-0 bg-black/40" @click="emit('close')"></div>
-    <div class="relative bg-surface rounded-lg shadow-elev3 border border-[var(--border-subtle)] w-full max-w-lg p-4">
+    <div class="relative bg-surface rounded-md sm:rounded-lg shadow-elev3 border border-[var(--border-subtle)] w-full sm:max-w-lg max-h-[90vh] overflow-auto mx-2 sm:mx-0 p-4">
       <header class="flex items-center justify-between mb-3">
         <h3 class="text-base font-semibold" :id="titleId">{{ title }}</h3>
-        <button class="btn btn-ghost h-8 px-2" aria-label="Close" @click="emit('close')">×</button>
+        <button class="btn btn-ghost h-8 px-2" aria-label="Close" @click="emit('close')">Ã—</button>
       </header>
       <div class="space-y-3">
         <slot />
@@ -46,3 +46,4 @@ function onKeydown(e: KeyboardEvent) {
 onMounted(() => window.addEventListener('keydown', onKeydown))
 onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 </script>
+

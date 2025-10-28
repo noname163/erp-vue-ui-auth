@@ -1,8 +1,8 @@
 <template>
     <div class="space-y-4">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
             <h2 class="text-lg font-semibold">{{ t('employees.title') }}</h2>
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2 w-full sm:w-auto">
                 <RequireRole :roles="['admin', 'manager']">
                     <AppButton variant="secondary" size="md" @click="openImport = true">{{ t('employees.importCsv') }}</AppButton>
                     <AppButton variant="primary" size="md" @click="openCreate = true">{{ t('employees.add') }}</AppButton>

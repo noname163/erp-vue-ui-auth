@@ -1,15 +1,15 @@
 <template>
   <div class="bg-surface rounded-lg shadow-elev1 border border-[var(--border-subtle)] overflow-hidden">
-    <div class="p-3 flex items-center justify-between">
+    <div class="p-3 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
       <div class="flex items-center gap-2">
-        <input class="input w-64" v-model="q" :placeholder="placeholder" />
+        <input class="input w-full sm:w-64" v-model="q" :placeholder="placeholder" />
       </div>
       <div class="flex items-center gap-2">
         <slot name="actions" />
       </div>
     </div>
     <div class="overflow-auto">
-      <table class="min-w-full text-sm">
+      <table class="min-w-full text-xs sm:text-sm">
         <thead class="bg-[var(--bg-canvas)] text-[var(--text-secondary)]">
           <tr>
             <th v-for="col in columns" :key="col.key" class="text-left px-3 py-2 border-b border-[var(--border-subtle)] whitespace-nowrap">
