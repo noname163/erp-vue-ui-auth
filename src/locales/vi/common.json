@@ -20,11 +20,41 @@
     "companies": "Doanh nghiệp",
     "employees": "Nhân viên",
     "schedules": "Lịch làm việc",
+    "workingHours": "Giờ công",
     "settings": "Cài đặt",
     "pto": "Nghỉ phép & Biểu mẫu",
     "salaryTax": "Lương & Thuế",
     "reports": "Báo cáo",
     "auditLog": "Nhật ký kiểm tra"
+  },
+  "workingHoursView": {
+    "title": "Giờ công",
+    "subtitle": "Quản lý giờ làm việc theo khoảng ngày, kèm giờ OT.",
+    "addButton": "Thêm giờ công",
+    "editTitle": "Chỉnh sửa giờ công",
+    "addTitle": "Thêm giờ công",
+    "searchPlaceholder": "Tìm nhân viên...",
+    "table": {
+      "employee": "Nhân viên",
+      "date": "Ngày",
+      "start": "Giờ vào",
+      "end": "Giờ tan ca",
+      "hours": "Giờ",
+      "ot": "OT",
+      "action": "Hành động",
+      "searchPlaceholder": "Tìm dữ liệu..."
+    }
+  },
+
+  "workingHoursForm": {
+    "workingHours": "Giờ làm",
+    "otHours": "Giờ OT",
+    "startTime": "Giờ bắt đầu",
+    "endTime": "Giờ kết thúc",
+    "applySelectedEmployees": "Áp dụng cho nhân viên đã chọn",
+    "date": "Ngày",
+    "byHours": "Nhập giờ làm việc",
+    "byTime": "Giờ vào/ra"
   },
   "controls": {
     "startDate": "Ngày bắt đầu",
@@ -40,7 +70,10 @@
     "edit": "Chỉnh sửa",
     "save": "Lưu",
     "upload": "Tải lên",
-    "noResults": "Không có kết quả"
+    "noResults": "Không có kết quả",
+    "selectAll": "Chọn tất cả",
+    "searchPlaceholder": "Tìm kiếm...",
+    "search": "Tìm kiếm"
   },
   "validation": {
     "required": "Trường này là bắt buộc",

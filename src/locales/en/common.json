@@ -20,11 +20,31 @@
     "companies": "Companies",
     "employees": "Employees",
     "schedules": "Schedules",
+    "workingHours": "Working Hours",
     "settings": "Settings",
     "pto": "PTO & Forms",
     "salaryTax": "Salary & Tax",
-    "reports": "Reports",
-    "auditLog": "Audit Log"
+  "reports": "Reports",
+  "auditLog": "Audit Log"
+  },
+  "workingHoursView": {
+    "title": "Working Hours",
+    "subtitle": "Manage employee working hours, range by date, with OT.",
+    "addButton": "Add Working Hours",
+    "editTitle": "Edit Working Hours",
+    "addTitle": "Add Working Hours",
+    "searchPlaceholder": "Search employee...",
+    "date": "Date",
+    "table": {
+      "employee": "Employee",
+      "date": "Date",
+      "start": "Start",
+      "end": "End",
+      "hours": "Hours",
+      "ot": "OT",
+      "action": "Action",
+      "searchPlaceholder": "Search table..."
+    }
   },
   "controls": {
     "startDate": "Start date",
@@ -40,7 +60,19 @@
     "edit": "Edit",
     "save": "Save",
     "upload": "Upload",
-    "noResults": "No results"
+    "noResults": "No results",
+    "selectAll": "Select all",
+    "searchPlaceholder": "Search...",
+    "search": "Search"
+  },
+  "workingHoursForm": {
+    "workingHours": "Working hours",
+    "otHours": "OT hours",
+    "startTime": "Start time",
+    "endTime": "End time",
+    "applySelectedEmployees": "Apply to selected employees",
+    "byHours": "Input working hours",
+    "byTime": "Start/End time"
   },
   "validation": {
     "required": "This field is required",

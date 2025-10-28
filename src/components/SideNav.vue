@@ -27,6 +27,7 @@ const items = [
   { to: '/companies', icon: 'building', label: () => t('nav.companies'), roles: ['admin'] },
   { to: '/employees', icon: 'users', label: () => t('nav.employees'), roles: ['admin','manager'] },
   { to: '/schedules', icon: 'calendar', label: () => t('workSchedules.title'), roles: ['admin','manager'] },
+  { to: '/working-hour', icon: 'clock', label: () => t('nav.workingHours'), roles: ['admin'] },
   { to: '/pto', icon: 'form', label: () => t('nav.pto'), roles: ['admin','manager','viewer'] },
   { to: '/salary-tax', icon: 'payroll', label: () => t('nav.salaryTax'), roles: ['admin'] },
   { to: '/reports', icon: 'reports', label: () => t('nav.reports'), roles: ['admin','manager'] },

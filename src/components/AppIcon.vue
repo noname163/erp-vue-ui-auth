@@ -5,7 +5,7 @@
 </template>
 <script setup lang="ts">
 import { h } from 'vue'
-const props = withDefaults(defineProps<{ name: 'dashboard'|'users'|'calendar'|'form'|'payroll'|'reports'|'shield'|'settings'|'building'|string; cls?: string }>(), { cls: '' })
+const props = withDefaults(defineProps<{ name: 'dashboard'|'users'|'calendar'|'form'|'payroll'|'reports'|'shield'|'settings'|'building'|'clock'|string; cls?: string }>(), { cls: '' })
 const paths: Record<string, any> = {
   dashboard: { render() { return [
     h('path', { d: 'M3 3h8v8H3z' }),
@@ -46,6 +46,10 @@ const paths: Record<string, any> = {
     h('circle', { cx: '12', cy: '12', r: '3' }),
     h('path', { d: 'M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0A1.65 1.65 0 0 0 9 3.09V3a2 2 0 1 1 4 0v.09c0 .65.39 1.24 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06c-.46.46-.6 1.15-.33 1.82h0A1.65 1.65 0 0 0 20.91 11H21a2 2 0 1 1 0 4h-.09c-.65 0-1.24.39-1.51 1z' })] } },
   default: { render() { return [h('circle', { cx: '12', cy: '12', r: '3' })] } }
+  ,clock: { render() { return [
+    h('circle', { cx: '12', cy: '12', r: '9' }),
+    h('path', { d: 'M12 7v5l3 3' })
+  ] } }
 }
 const { name, cls } = props
 </script>
