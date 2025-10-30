@@ -13,7 +13,8 @@
     "email": "Email",
     "password": "Mật khẩu",
     "rememberMe": "Ghi nhớ đăng nhập",
-    "signInToAccount": "Đăng nhập vào tài khoản của bạn"
+    "signInToAccount": "Đăng nhập vào tài khoản của bạn",
+    "loginFailed": "Đăng nhập thất bại. Vui lòng kiểm tra thông tin và thử lại."
   },
   "nav": {
     "dashboard": "Bảng điều khiển",

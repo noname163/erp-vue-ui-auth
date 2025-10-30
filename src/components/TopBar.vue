@@ -20,7 +20,7 @@
                     </div>
                     <div class="flex items-center gap-2 mb-3">
                         <div class="h-8 w-8 rounded-full bg-[var(--bg-canvas)] grid place-items-center">{{ avatarInitial
-                            }}</div>
+                        }}</div>
                         <div class="min-w-0">
                             <div class="text-sm font-medium truncate">{{ auth.user?.name || auth.user?.email }}</div>
                             <div class="text-xs text-[var(--text-secondary)] truncate">{{ auth.user?.email }}</div>
@@ -40,7 +40,7 @@
 </template>
 <script setup lang="ts">
 import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
-import { useAuth } from '../stores/auth'
+import { useAuth } from '../stores/authStore'
 import LanguageSwitcherInline from '@/components/i18n/LanguageSwitcherInline.vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()

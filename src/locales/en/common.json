@@ -13,7 +13,8 @@
     "email": "Email",
     "password": "Password",
     "rememberMe": "Remember me",
-    "signInToAccount": "Sign in to your account"
+    "signInToAccount": "Sign in to your account",
+    "loginFailed": "Login failed. Please check your credentials and try again." 
   },
   "nav": {
     "dashboard": "Dashboard",
