@@ -43,10 +43,8 @@
 
         <AppModal :open="openCompanyModal"
             :title="editingCompanyId ? t('companies.editTitle') : t('companies.createTitle')"
-            :confirm-text="editingCompanyId ? t('controls.save') : t('controls.create')" 
-            :confirm-disabled="!companyFormValid"
-            @close="closeCompanyModal"
-            @confirm="saveCompany">
+            :confirm-text="editingCompanyId ? t('controls.save') : t('controls.create')"
+            :confirm-disabled="!companyFormValid" @close="closeCompanyModal" @confirm="saveCompany">
             <CompanyForm v-model="companyForm" :status-options="statusOptions" @valid="companyFormValid = $event" />
         </AppModal>
 
@@ -109,36 +107,12 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import AppTable from '../components/AppTable.vue'
-import AppModal from '../components/AppModal.vue'
-import FormInput from '../components/FormInput.vue'
-import RequireRole from '../components/RequireRole.vue'
 import AppButton from '../components/AppButton.vue'
-import CompanyForm from '../components/CompanyForm.vue'
+import AppModal from '../components/AppModal.vue'
+import AppTable from '../components/AppTable.vue'
 import CompanyAccountForm from '../components/CompanyAccountForm.vue'
-
-type CompanyStatus = 'Active' | 'Inactive'
-type AccountStatus = CompanyStatus
-type AccountRole = 'Owner' | 'Admin' | 'Member'
-
-interface CompanyAccount {
-    id: number
-    name: string
-    email: string
-    role: AccountRole
-    status: AccountStatus
-}
-
-interface Company {
-    id: number
-    name: string
-    tax: string
-    industry: string
-    address: string
-    phone: string
-    status: CompanyStatus
-    accounts: CompanyAccount[]
-}
+import CompanyForm from '../components/CompanyForm.vue'
+import RequireRole from '../components/RequireRole.vue'
 
 const { t } = useI18n()
 
@@ -146,10 +120,10 @@ const companies = ref<Company[]>([
     {
         id: 1,
         name: 'Alpha Manufacturing',
-        tax: 'C-1001',
+        taxNumber: 'C-1001',
         industry: 'Manufacturing',
         address: 'HCM, District 7',
-        phone: '+84 901 234 567',
+        phoneNumber: '+84 901 234 567',
         status: 'Active',
         accounts: [
             { id: 11, name: 'Mai Nguyen', email: 'mai.nguyen@alphamfg.com', role: 'Owner', status: 'Active' },
@@ -159,10 +133,10 @@ const companies = ref<Company[]>([
     {
         id: 2,
         name: 'Saigon Retail Group',
-        tax: 'C-1024',
+        taxNumber: 'C-1024',
         industry: 'Retail',
         address: 'HCM, District 1',
-        phone: '+84 907 556 778',
+        phoneNumber: '+84 907 556 778',
         status: 'Active',
         accounts: [
             { id: 21, name: 'Khoa Tran', email: 'khoa.tran@saigonretail.vn', role: 'Owner', status: 'Active' },
@@ -172,10 +146,10 @@ const companies = ref<Company[]>([
     {
         id: 3,
         name: 'Delta Logistics',
-        tax: 'C-1042',
+        taxNumber: 'C-1042',
         industry: 'Logistics',
         address: 'HCM, Binh Tan',
-        phone: '+84 28 3890 1234',
+        phoneNumber: '+84 28 3890 1234',
         status: 'Inactive',
         accounts: [
             { id: 31, name: 'Huy Bui', email: 'huy.bui@deltalog.vn', role: 'Admin', status: 'Active' }
@@ -250,32 +224,33 @@ function closeCompanyModal() {
 
 function resetCompanyForm(company?: Company) {
     companyForm.name = company?.name ?? ''
-    companyForm.tax = company?.tax ?? ''
+    companyForm.tax = company?.taxNumber ?? ''
     companyForm.industry = company?.industry ?? ''
     companyForm.address = company?.address ?? ''
-    companyForm.phone = company?.phone ?? ''
+    companyForm.phone = company?.phoneNumber ?? ''
     companyForm.status = company?.status ?? 'Active'
 }
 
 function saveCompany() {
+    console.log('Saving company, form valid:', companyFormValid.value)
     if (!companyForm.name || !companyForm.tax) return
     const payload = {
         name: companyForm.name.trim(),
-        tax: companyForm.tax.trim(),
+        taxNumber: companyForm.tax.trim(),
         industry: companyForm.industry.trim(),
         address: companyForm.address.trim(),
-        phone: companyForm.phone.trim(),
+        phoneNumber: companyForm.phone.trim(),
         status: companyForm.status
     }
     if (editingCompanyId.value) {
         const existing = companies.value.find(company => company.id === editingCompanyId.value)
         if (existing) {
             existing.name = payload.name
-            existing.tax = payload.tax
+            existing.taxNumber = payload.taxNumber
             existing.industry = payload.industry
             existing.address = payload.address
-            existing.phone = payload.phone
-            existing.status = payload.status
+            existing.phoneNumber = payload.phoneNumber
+            existing.status = companyForm.status
         }
     } else {
         companies.value.unshift({ id: Date.now(), accounts: [], ...payload })

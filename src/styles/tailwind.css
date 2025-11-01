@@ -17,9 +17,10 @@
 
 .card { @apply bg-surface shadow-elev1 rounded-lg p-4; }
 .btn { @apply inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2; }
-.btn-primary { @apply bg-brand text-white hover:bg-brand-600; }
-.btn-secondary { @apply bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:bg-[var(--bg-canvas)]; }
-.btn-ghost { @apply text-[var(--text-primary)] hover:bg-[var(--bg-canvas)]; }
+.btn:disabled { @apply cursor-not-allowed; }
+.btn-primary { @apply bg-brand text-white hover:bg-brand-600 disabled:bg-brand-tint disabled:text-brand-600 disabled:hover:bg-brand-tint; }
+.btn-secondary { @apply bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-subtle)] hover:bg-[var(--bg-canvas)] disabled:text-[var(--text-muted)] disabled:border-[var(--border-strong)]; }
+.btn-ghost { @apply text-[var(--text-primary)] hover:bg-[var(--bg-canvas)] disabled:text-[var(--text-muted)]; }
 .input { @apply w-full rounded-md border border-[var(--border-subtle)] bg-surface px-3 py-2 outline-none focus-visible:ring-2; }
 .label { @apply text-sm text-[var(--text-secondary)] mb-1; }
 .badge { @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs border border-[var(--border-subtle)] bg-[var(--bg-surface)]; }

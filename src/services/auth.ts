@@ -10,7 +10,6 @@ export const authService = {
       "/auth/login",
       payload
     );
-    console.log("Auth service login response:", response);
     return response;
   },
 

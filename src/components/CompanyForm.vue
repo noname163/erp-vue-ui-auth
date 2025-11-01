@@ -1,54 +1,18 @@
     <template>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <FormInput
-                id="company-name"
-                v-model="name"
-                :label="t('companies.fields.name')"
-                placeholder="Acme Corp"
-                :validate="true"
-                :required="true"
-                :required-message="t('validation.required')"
-                validate-on="blur"
-                @validation="onFieldValidation"
-            />
-            <FormInput
-                id="company-tax"
-                v-model="tax"
-                :label="t('companies.fields.tax')"
-                placeholder="C-10001"
-                :validate="true"
-                :required="true"
-                :required-message="t('validation.required')"
-                validate-on="blur"
-                @validation="onFieldValidation"
-            />
-            <FormInput
-                id="company-industry"
-                v-model="industry"
-                :label="t('companies.fields.industry')"
-                placeholder="Manufacturing"
-                @validation="onFieldValidation"
-            />
-            <FormInput
-                id="company-phone"
-                v-model="phone"
-                :label="t('companies.fields.phone')"
-                placeholder="(+84) 901234567"
-                :validate="true"
-                :pattern="phonePattern"
-                pattern-message="Invalid phone number"
-                validate-on="blur"
-                @validation="onFieldValidation"
-            />
-            <FormInput
-                id="company-address"
-                v-model="address"
-                type="adrress"
-                :label="t('companies.fields.address')"
-                placeholder="HCM, District 2"
-                class="md:col-span-2"
-                @validation="onFieldValidation"
-            />
+            <FormInput id="company-name" v-model="name" :label="t('companies.fields.name')" placeholder="Acme Corp"
+                :validate="true" :required="true" :required-message="t('validation.required')" validate-on="blur"
+                @validation="onFieldValidation" />
+            <FormInput id="company-tax" v-model="tax" :label="t('companies.fields.tax')" placeholder="C-10001"
+                :validate="true" :required="true" :required-message="t('validation.required')" validate-on="blur"
+                @validation="onFieldValidation" />
+            <FormInput id="company-industry" v-model="industry" :label="t('companies.fields.industry')"
+                placeholder="Manufacturing" :validate="true" @validation="onFieldValidation" />
+            <FormInput id="company-phone" v-model="phone" :label="t('companies.fields.phone')"
+                placeholder="(+84) 901234567" :validate="true" :required="true" :pattern="phonePattern"
+                pattern-message="Invalid phone number" validate-on="blur" @validation="onFieldValidation" />
+            <FormInput id="company-address" v-model="address" type="adrress" :label="t('companies.fields.address')"
+                placeholder="HCM, District 2" class="md:col-span-2" />
         </div>
     </template>
 <script setup lang="ts">
@@ -101,11 +65,6 @@ const phone = computed({
     get: () => props.modelValue.phone,
     set: (v: string) => emit('update:modelValue', { ...props.modelValue, phone: v })
 })
-const status = computed({
-    get: () => props.modelValue.status,
-    set: (v: CompanyStatus) => emit('update:modelValue', { ...props.modelValue, status: v })
-})
-
 // Track per-field validity and emit overall validity to parent
 const fieldValidity = reactive<Record<string, boolean>>({
     'company-name': false,
@@ -117,6 +76,7 @@ const fieldValidity = reactive<Record<string, boolean>>({
 
 function onFieldValidation(payload: { id?: string; valid: boolean }) {
     if (payload.id) fieldValidity[payload.id] = payload.valid
+    console.log('Field validity updated:', Object.values(fieldValidity).every(Boolean))
     emit('valid', Object.values(fieldValidity).every(Boolean))
 }
 

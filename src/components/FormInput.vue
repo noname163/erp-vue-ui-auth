@@ -34,15 +34,13 @@ const emit = defineEmits<{
 }>()
 const inputId = computed(() => props.id)
 const touched = ref(false)
-const forceShow = ref(false)
 const showError = ref(false)
-const valueStr = computed(() => (props.modelValue ?? '').toString())
 function deriveError(val: string): boolean {
-    console.log('deriveError', val)
     if (!props.validate) return !showError.value
     const v = val.trim()
     if (props.required && v.length > 0) {
         showError.value = false
+        finalErrorMessage.value = ''
     }
     if (props.required && v.length === 0) {
         finalErrorMessage.value = props.requiredMessage
@@ -51,32 +49,25 @@ function deriveError(val: string): boolean {
     }
     if (props.pattern && v.length > 0) {
         const regex = typeof props.pattern === 'string' ? new RegExp(props.pattern) : (props.pattern as RegExp)
-        console.log('testing pattern', regex, v, regex.test(v))
         if (!regex.test(v)) {
             showError.value = true
             finalErrorMessage.value = props.patternMessage
         }
-        else showError.value = false
+        else {
+            showError.value = false
+            finalErrorMessage.value = ''
+        }
     }
-    console.log('derived showError', showError.value)
     return showError.value
 }
-const derivedError = computed(() => {
-    if (!props.validate) return ''
-    return deriveError(valueStr.value)
-})
 const finalErrorMessage = ref('')
-const showByMode = computed(() => {
-    if (props.validateOn === 'input') return true
-    if (props.validateOn === 'blur') return touched.value
-    // submit
-    return props.submitted
-})
-
 
 function emitValidationFor(val: string) {
-    const err = deriveError(val)
-    emit('validation', { id: inputId.value || undefined, valid: !err, error: err })
+    console.log('Emitting validation for value:', inputId.value, val)
+    const hasError = deriveError(val)
+    const message = hasError ? finalErrorMessage.value : ''
+    console.log('Validation result - hasError:', hasError)
+    emit('validation', { id: inputId.value || undefined, valid: !hasError, error: message })
 }
 
 function onInput(e: Event) {
@@ -86,8 +77,8 @@ function onInput(e: Event) {
 function onBlur(e: Event) {
     touched.value = true
     const next = (e.target as HTMLInputElement).value
-    console.log('onBlur', next)
     emitValidationFor(next)
+    emit('update:modelValue', next)
 }
 
 </script>
