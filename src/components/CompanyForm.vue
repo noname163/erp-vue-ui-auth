@@ -1,22 +1,58 @@
     <template>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <FormInput v-model="name" :label="t('companies.fields.name')" placeholder="Acme Corp" />
-            <FormInput v-model="code" :label="t('companies.fields.code')" placeholder="C-10001" />
-            <FormInput v-model="industry" :label="t('companies.fields.industry')" placeholder="Manufacturing" />
-            <FormInput v-model="phone" :label="t('companies.fields.phone')" placeholder="(+84) 901234567" />
-            <FormInput v-model="contactEmail" type="email" :label="t('companies.fields.email')"
-                placeholder="contact@acme.com" class="md:col-span-2" />
-            <div>
-                <label class="label" for="company-status">{{ t('companies.fields.status') }}</label>
-                <select id="company-status" v-model="status" class="input">
-                    <option v-for="option in statusOptions" :key="option.value" :value="option.value">{{ option.label }}
-                    </option>
-                </select>
-            </div>
+            <FormInput
+                id="company-name"
+                v-model="name"
+                :label="t('companies.fields.name')"
+                placeholder="Acme Corp"
+                :validate="true"
+                :required="true"
+                :required-message="t('validation.required')"
+                validate-on="blur"
+                @validation="onFieldValidation"
+            />
+            <FormInput
+                id="company-tax"
+                v-model="tax"
+                :label="t('companies.fields.tax')"
+                placeholder="C-10001"
+                :validate="true"
+                :required="true"
+                :required-message="t('validation.required')"
+                validate-on="blur"
+                @validation="onFieldValidation"
+            />
+            <FormInput
+                id="company-industry"
+                v-model="industry"
+                :label="t('companies.fields.industry')"
+                placeholder="Manufacturing"
+                @validation="onFieldValidation"
+            />
+            <FormInput
+                id="company-phone"
+                v-model="phone"
+                :label="t('companies.fields.phone')"
+                placeholder="(+84) 901234567"
+                :validate="true"
+                :pattern="phonePattern"
+                pattern-message="Invalid phone number"
+                validate-on="blur"
+                @validation="onFieldValidation"
+            />
+            <FormInput
+                id="company-address"
+                v-model="address"
+                type="adrress"
+                :label="t('companies.fields.address')"
+                placeholder="HCM, District 2"
+                class="md:col-span-2"
+                @validation="onFieldValidation"
+            />
         </div>
     </template>
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, reactive, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FormInput from './FormInput.vue'
 
@@ -24,14 +60,16 @@ type CompanyStatus = 'Active' | 'Inactive'
 
 interface CompanyFormModel {
     name: string
-    code: string
+    tax: string
     industry: string
-    contactEmail: string
+    address: string
     phone: string
     status: CompanyStatus
 }
 
 const { t } = useI18n()
+// Simple phone validation: optional +, digits with spaces or dashes, min length
+const phonePattern = '^[+]?\\d[\\d\\s-]{7,}$'
 
 const props = defineProps<{
     modelValue: CompanyFormModel
@@ -40,23 +78,24 @@ const props = defineProps<{
 
 const emit = defineEmits<{
     (e: 'update:modelValue', v: CompanyFormModel): void
+    (e: 'valid', v: boolean): void
 }>()
 
 const name = computed({
     get: () => props.modelValue.name,
     set: (v: string) => emit('update:modelValue', { ...props.modelValue, name: v })
 })
-const code = computed({
-    get: () => props.modelValue.code,
-    set: (v: string) => emit('update:modelValue', { ...props.modelValue, code: v })
+const tax = computed({
+    get: () => props.modelValue.tax,
+    set: (v: string) => emit('update:modelValue', { ...props.modelValue, tax: v })
 })
 const industry = computed({
     get: () => props.modelValue.industry,
     set: (v: string) => emit('update:modelValue', { ...props.modelValue, industry: v })
 })
-const contactEmail = computed({
-    get: () => props.modelValue.contactEmail,
-    set: (v: string) => emit('update:modelValue', { ...props.modelValue, contactEmail: v })
+const address = computed({
+    get: () => props.modelValue.address,
+    set: (v: string) => emit('update:modelValue', { ...props.modelValue, address: v })
 })
 const phone = computed({
     get: () => props.modelValue.phone,
@@ -66,5 +105,22 @@ const status = computed({
     get: () => props.modelValue.status,
     set: (v: CompanyStatus) => emit('update:modelValue', { ...props.modelValue, status: v })
 })
-</script>
 
+// Track per-field validity and emit overall validity to parent
+const fieldValidity = reactive<Record<string, boolean>>({
+    'company-name': false,
+    'company-tax': false,
+    'company-phone': true,
+    'company-industry': true,
+    'company-address': true,
+})
+
+function onFieldValidation(payload: { id?: string; valid: boolean }) {
+    if (payload.id) fieldValidity[payload.id] = payload.valid
+    emit('valid', Object.values(fieldValidity).every(Boolean))
+}
+
+onMounted(() => {
+    emit('valid', Object.values(fieldValidity).every(Boolean))
+})
+</script>

@@ -122,10 +122,10 @@
     "searchPlaceholder": "Tìm doanh nghiệp...",
     "fields": {
       "name": "Tên doanh nghiệp",
-      "code": "Mã",
+      "tax": "Mã số thuế",
       "industry": "Ngành",
       "phone": "Điện thoại",
-      "email": "Email",
+      "address": "Địa chỉ",
       "status": "Trạng thái"
     },
     "columns": {

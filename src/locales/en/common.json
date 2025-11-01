@@ -122,10 +122,10 @@
     "searchPlaceholder": "Search companies...",
     "fields": {
       "name": "Company name",
-      "code": "Code",
+      "tax": "Tax",
       "industry": "Industry",
       "phone": "Phone",
-      "email": "Email",
+      "address": "Address",
       "status": "Status"
     },
     "columns": {

@@ -25,14 +25,14 @@ const { t } = useI18n()
 const auth = useAuth()
 const items = [
     { to: '/dashboard', icon: 'dashboard', label: () => t('nav.dashboard') },
-    { to: '/companies', icon: 'building', label: () => t('nav.companies'), roles: ['admin'] },
-    { to: '/employees', icon: 'users', label: () => t('nav.employees'), roles: ['admin', 'manager'] },
-    { to: '/schedules', icon: 'calendar', label: () => t('workSchedules.title'), roles: ['admin', 'manager'] },
-    { to: '/pto', icon: 'form', label: () => t('nav.pto'), roles: ['admin', 'manager', 'viewer'] },
-    { to: '/salary-tax', icon: 'payroll', label: () => t('nav.salaryTax'), roles: ['admin'] },
-    { to: '/reports', icon: 'reports', label: () => t('nav.reports'), roles: ['admin', 'manager'] },
-    { to: '/audit', icon: 'shield', label: () => t('nav.auditLog'), roles: ['admin'] },
-    { to: '/settings', icon: 'settings', label: () => t('nav.settings'), roles: ['admin'] },
+    { to: '/companies', icon: 'building', label: () => t('nav.companies'), roles: ['ADMIN'] },
+    { to: '/employees', icon: 'users', label: () => t('nav.employees'), roles: ['ADMIN', 'manager'] },
+    { to: '/schedules', icon: 'calendar', label: () => t('workSchedules.title'), roles: ['ADMIN', 'manager'] },
+    { to: '/pto', icon: 'form', label: () => t('nav.pto'), roles: ['ADMIN', 'manager', 'viewer'] },
+    { to: '/salary-tax', icon: 'payroll', label: () => t('nav.salaryTax'), roles: ['ADMIN'] },
+    { to: '/reports', icon: 'reports', label: () => t('nav.reports'), roles: ['ADMIN', 'manager'] },
+    { to: '/audit', icon: 'shield', label: () => t('nav.auditLog'), roles: ['ADMIN'] },
+    { to: '/settings', icon: 'settings', label: () => t('nav.settings'), roles: ['ADMIN'] },
 ]
 const visibleItems = computed(() => items.filter(i => !i.roles || auth.hasRole(i.roles)))
 </script>

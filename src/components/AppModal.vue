@@ -17,7 +17,7 @@
       </div>
       <footer class="mt-4 flex justify-end gap-2">
         <AppButton variant="secondary" size="md" @click="emit('close')">{{ t('controls.cancel') }}</AppButton>
-        <AppButton variant="primary" size="md" @click="emit('confirm')">{{ confirmText }}</AppButton>
+        <AppButton variant="primary" size="md" :disabled="props.confirmDisabled" @click="emit('confirm')">{{ confirmText }}</AppButton>
       </footer>
     </div>
   </div>
@@ -28,8 +28,8 @@ import { useI18n } from 'vue-i18n'
 import AppButton from './AppButton.vue'
 const { t } = useI18n()
 const props = withDefaults(
-  defineProps<{ open: boolean; title?: string; confirmText?: string }>(),
-  { confirmText: 'Save' }
+  defineProps<{ open: boolean; title?: string; confirmText?: string; confirmDisabled?: boolean }>(),
+  { confirmText: 'Save', confirmDisabled: false }
 )
 const emit = defineEmits<{
   (e: 'close'): void

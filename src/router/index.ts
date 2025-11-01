@@ -21,49 +21,49 @@ const routes = [
   {
     path: "/companies",
     component: Companies,
-    meta: { requiresAuth: true, roles: ["admin"] },
+    meta: { requiresAuth: true, roles: ["ADMIN"] },
   },
   {
     path: "/employees",
     component: Employees,
-    meta: { requiresAuth: true, roles: ["admin", "manager"] },
+    meta: { requiresAuth: true, roles: ["ADMIN", "manager"] },
   },
   {
     path: "/employees/:code",
     name: "employee-detail",
     component: EmployeeDetail,
     props: true,
-    meta: { requiresAuth: true, roles: ["admin", "manager", "viewer"] },
+    meta: { requiresAuth: true, roles: ["ADMIN", "manager", "viewer"] },
   },
   {
     path: "/schedules",
     component: WorkSchedules,
-    meta: { requiresAuth: true, roles: ["admin", "manager"] },
+    meta: { requiresAuth: true, roles: ["ADMIN", "manager"] },
   },
   {
     path: "/pto",
     component: PTOForms,
-    meta: { requiresAuth: true, roles: ["admin", "manager", "viewer"] },
+    meta: { requiresAuth: true, roles: ["ADMIN", "manager", "viewer"] },
   },
   {
     path: "/salary-tax",
     component: SalaryTax,
-    meta: { requiresAuth: true, roles: ["admin"] },
+    meta: { requiresAuth: true, roles: ["ADMIN"] },
   },
   {
     path: "/reports",
     component: Reports,
-    meta: { requiresAuth: true, roles: ["admin", "manager"] },
+    meta: { requiresAuth: true, roles: ["ADMIN", "manager"] },
   },
   {
     path: "/audit",
     component: AuditLog,
-    meta: { requiresAuth: true, roles: ["admin"] },
+    meta: { requiresAuth: true, roles: ["ADMIN"] },
   },
   {
     path: "/settings",
     component: Settings,
-    meta: { requiresAuth: true, roles: ["admin"] },
+    meta: { requiresAuth: true, roles: ["ADMIN"] },
   },
   {
     path: "/components-demo",
